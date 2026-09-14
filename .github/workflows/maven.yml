@@ -35,7 +35,7 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: |
-          apt-get install --yes maven
+          sudo apt-get install --yes maven
           ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
           mvn clean verify
 
