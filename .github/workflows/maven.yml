@@ -25,7 +25,7 @@ jobs:
 
     steps:
     - uses: awalsh128/cache-apt-pkgs-action@v1
-        with:
+      with:
           packages: libnuma1 libaio1t64
           version: 1.0
     - run: ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
