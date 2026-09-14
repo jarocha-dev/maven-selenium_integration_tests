@@ -24,10 +24,11 @@ jobs:
         - 3306
 
     steps:
+    - run: sudo apt-get install --yes sudo
     - uses: ConorMacBride/install-package@v1
       with:
         apt: libnuma1 libaio1t64
-    - run: ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
+    - run: sudo ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
     - uses: actions/checkout@v4
     - uses: actions/setup-java@v6
       with:
