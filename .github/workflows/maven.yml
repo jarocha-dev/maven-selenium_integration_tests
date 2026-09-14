@@ -26,9 +26,9 @@ jobs:
     steps:
     - name: Setup MySQL environment
       run: |
-          sudo apt-get install --yes libnuma1
-          sudo apt-get install --yes libaio1t64
-          sudo ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
+          apt-get install --yes libnuma1
+          apt-get install --yes libaio1t64
+          ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
     - uses: actions/checkout@v4
     - uses: actions/setup-java@v6
       with:
