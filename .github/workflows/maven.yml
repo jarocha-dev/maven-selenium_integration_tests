@@ -17,7 +17,10 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:24.04
+      ports:
+        - 3306
 
     steps:
     - uses: actions/checkout@v4
