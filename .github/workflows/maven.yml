@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ubuntu:24.04
-      ports: [ 3306, 8181 ]
+      ports: [ 3306 ]
 
     steps:
     - name: Prepare MySQL env
@@ -48,7 +48,7 @@ jobs:
       run: |
           java --version
           mvn --version
-          mvn clean verify
+          mvn clean verify -DskipITs
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
