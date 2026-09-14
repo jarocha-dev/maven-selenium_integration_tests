@@ -24,26 +24,24 @@ jobs:
         - 3306
 
     steps:
+    - name: Setup MySQL environment
+      run: |
+          sudo apt-get install --yes libnuma1
+          sudo apt-get install --yes libaio1t64
+          sudo ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
     - uses: actions/checkout@v4
     - uses: actions/setup-java@v6
       with:
         distribution: temurin
         java-version: '25'
         cache: maven
-    - name: Set up Maven
-      uses: stCarolas/setup-maven@v5
+    - uses: stCarolas/setup-maven@v5
       with:
         maven-version: 3.9.16
-    - name: Build with Maven
-      run: |
+    - run: |
           java --version
           mvn --version
-          apt-get install --yes libnuma1
-          apt-get install --yes libaio1t64
-          ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
           mvn clean verify
-      env:
-        ports: 3306
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
