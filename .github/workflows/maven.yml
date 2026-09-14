@@ -26,7 +26,6 @@ jobs:
         distribution: temurin
         java-version: '25'
         cache: maven
-        ports: 3306
     - name: Build with Maven
       run: |
           java --version
@@ -35,6 +34,8 @@ jobs:
           sudo apt-get install --yes libaio1t64
           sudo ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
           mvn clean verify
+      env:
+        ports: 3306
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     - name: Update dependency graph
