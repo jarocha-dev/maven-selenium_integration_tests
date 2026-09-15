@@ -19,7 +19,7 @@ jobs:
 
     runs-on: ubuntu-latest
     container:
-      image: ubuntu-vnc-xfce-firefox-g3:24.04
+      image: accetto/ubuntu-vnc-xfce-firefox-g3:24.04
       ports: [ 3306 ]
 
     steps:
