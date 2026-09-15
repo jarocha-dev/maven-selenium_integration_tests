@@ -21,8 +21,6 @@ jobs:
     container:
       image: accetto/ubuntu-vnc-xfce-firefox-g3:24.04
       ports: [ 3306 ]
-      volumes:
-        - mvn_repo_dir:/home/headless/.m2/repository:rw
 
     steps:
     - name: Prepare MySQL env
@@ -45,4 +43,6 @@ jobs:
       run: |
           java --version
           mvn --version
+          mkdir -p /home/headless/.m2/repository
+          echo headless | sudo -S chown -R headless:headless /home/headless/.m2
           mvn clean verify -DskipITs
