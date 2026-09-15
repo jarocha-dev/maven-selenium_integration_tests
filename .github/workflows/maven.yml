@@ -21,6 +21,8 @@ jobs:
     container:
       image: accetto/ubuntu-vnc-xfce-firefox-g3:24.04
       ports: [ 3306 ]
+      volumes:
+        - /home/headless/.m2/repository
 
     steps:
     - name: Prepare MySQL env
