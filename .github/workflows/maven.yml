@@ -43,6 +43,6 @@ jobs:
       run: |
           java --version
           mvn --version
-          mkdir -p /home/headless/.m2/repository
+          echo headless | sudo -S mkdir -p /home/headless/.m2/repository
           echo headless | sudo -S chown -R headless:headless /home/headless/.m2
           mvn clean verify -DskipITs
