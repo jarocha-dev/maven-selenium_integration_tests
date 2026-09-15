@@ -32,7 +32,8 @@ jobs:
         echo headless | sudo -S ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
     - name: Prepare Firefox env
       run: |
-        wget -qO- https://github.com/mozilla/geckodriver/releases/download/v0.37.1/geckodriver-v0.37.1-linux64.tar.gz | tar -C /opt xzf -
+        mkdir -p /opt && pushd /opt
+        wget -qO- https://github.com/mozilla/geckodriver/releases/download/v0.37.1/geckodriver-v0.37.1-linux64.tar.gz | tar xzf -
         echo headless | sudo -S ln -fs /opt/geckodriver /snap/bin/geckodriver
         
     - uses: actions/checkout@v4
