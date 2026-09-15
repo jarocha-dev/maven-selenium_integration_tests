@@ -43,4 +43,4 @@ jobs:
       run: |
           java --version
           mvn --version
-          mvn clean verify -DskipITs
+          echo headless | sudo -S mvn clean verify -DskipITs
