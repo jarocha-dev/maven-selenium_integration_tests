@@ -25,11 +25,11 @@ jobs:
     steps:
     - name: Prepare MySQL env
       run: |
-        sudo apt-get update --yes
-        sudo apt-get install --yes libnuma1
-        sudo apt-get install --yes libaio1t64
-        sudo apt-get install --yes libncurses6
-        sudo ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
+        echo headless | sudo -S apt-get update --yes
+        echo headless | sudo -S apt-get install --yes libnuma1
+        echo headless | sudo -S apt-get install --yes libaio1t64
+        echo headless | sudo -S apt-get install --yes libncurses6
+        echo headless | sudo -S ln -sf libaio.so.1t64 /usr/lib/x86_64-linux-gnu/libaio.so.1
     - uses: actions/checkout@v4
     - uses: actions/setup-java@v6
       with:
